@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Customer Data</title>
+</head>
+<body>
+
+<h2 style="text-align:center;">Customer Data</h2>
+
+<table border="1" style="margin:auto; width:80%; text-align:center;">
+<tr>
+<th>Name</th>
+<th>Mobile</th>
+<th>Date</th>
+<th>Service</th>
+</tr>
+
+{% for c in customers %}
+<tr>
+<td>{{ c[0] }}</td>
+<td>{{ c[1] }}</td>
+<td>{{ c[2] }}</td>
+<td>{{ c[3] }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>

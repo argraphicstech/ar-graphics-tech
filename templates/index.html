@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AR Graphics Tech</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+/* BACKGROUND ANIMATION */
+body{
+background: linear-gradient(-45deg,#1a0f3c,#3a1c71,#ff4e50,#1a2a6c);
+background-size:400% 400%;
+animation:bg 10s ease infinite;
+color:white;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* HEADER */
+header{
+text-align:center;
+padding:20px;
+}
+
+.logo img{
+width:220px;
+filter: drop-shadow(0 0 12px #00e5ff);
+}
+
+.tagline{
+font-size:18px;
+color:#ddd;
+margin-top:10px;
+}
+
+/* TITLE */
+.title{
+text-align:center;
+font-size:28px;
+margin:25px;
+color:#00e5ff;
+text-shadow:0 0 10px #00e5ff;
+}
+
+/* GRID */
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:25px;
+padding:25px;
+}
+
+/* CARD */
+.card{
+background:rgba(255,255,255,0.08);
+border-radius:20px;
+overflow:hidden;
+backdrop-filter:blur(20px);
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+transition:0.4s;
+position:relative;
+}
+
+/* GLOW BORDER */
+.card::before{
+content:"";
+position:absolute;
+inset:0;
+border-radius:20px;
+padding:2px;
+background:linear-gradient(45deg,#00e5ff,#ff00cc);
+-webkit-mask:
+linear-gradient(#000 0 0) content-box,
+linear-gradient(#000 0 0);
+-webkit-mask-composite:xor;
+mask-composite:exclude;
+}
+
+/* HOVER */
+.card:hover{
+transform:translateY(-12px) scale(1.05);
+box-shadow:0 20px 40px rgba(0,0,0,0.6);
+}
+
+/* IMAGE */
+.card img{
+width:100%;
+height:150px;
+object-fit:cover;
+transition:0.4s;
+}
+
+.card:hover img{
+transform:scale(1.1);
+}
+
+/* TEXT */
+.card-content{
+padding:15px;
+text-align:center;
+}
+
+.card h2{
+color:#00e5ff;
+margin-bottom:5px;
+}
+
+.card p{
+font-size:14px;
+color:#ddd;
+}
+
+/* CONTACT */
+.contact{
+padding:30px;
+text-align:center;
+background:rgba(255,255,255,0.08);
+margin:20px;
+border-radius:20px;
+}
+
+.contact h2{
+color:#00e5ff;
+}
+
+.contact input{
+width:90%;
+max-width:300px;
+padding:12px;
+margin:10px;
+border:none;
+border-radius:10px;
+}
+
+.contact button{
+padding:12px 25px;
+background:linear-gradient(45deg,#00e5ff,#ff00cc);
+border:none;
+border-radius:10px;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+.contact button:hover{
+transform:scale(1.1);
+box-shadow:0 0 20px #ff00cc;
+}
+
+/* FOOTER */
+footer{
+padding:20px;
+text-align:center;
+background:rgba(255,255,255,0.08);
+margin:20px;
+border-radius:20px;
+font-size:14px;
+}
+
+.map{
+margin:20px;
+padding:20px;
+background:rgba(255,255,255,0.08);
+border-radius:20px;
+text-align:center;
+}
+
+.map h2{
+color:#00e5ff;
+margin-bottom:10px;
+}
+/* ================= RESPONSIVE DESIGN ================= */
+
+/* MOBILE (0–600px) */
+@media (max-width:600px){
+
+.logo img{
+width:150px;
+}
+
+.title{
+font-size:22px;
+}
+
+.services{
+grid-template-columns:1fr;
+padding:15px;
+gap:15px;
+}
+
+.card img{
+height:120px;
+}
+
+.card h2{
+font-size:16px;
+}
+
+.card p{
+font-size:13px;
+}
+
+.contact input{
+width:95%;
+}
+
+.service-lines{
+font-size:13px;
+padding:10px;
+}
+
+.map iframe{
+height:250px;
+}
+
+}
+
+/* TABLET (600–900px) */
+@media (min-width:601px) and (max-width:900px){
+
+.services{
+grid-template-columns:repeat(2,1fr);
+}
+
+.card img{
+height:130px;
+}
+
+}
+
+/* LARGE SCREEN (900px+) */
+@media (min-width:901px){
+
+.services{
+grid-template-columns:repeat(4,1fr);
+}
+
+}
+
+/* FLEXIBLE IMAGES */
+img{
+max-width:100%;
+height:auto;
+}
+
+/* BUTTON RESPONSIVE */
+button{
+width:90%;
+max-width:250px;
+margin-top:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">
+<img src="static/images/logo.jpg">
+</div>
+<div class="tagline">All Printing & Digital Services in One Place</div>
+
+</header>
+
+<h2 class="title">Our Services</h2>
+
+<section class="services">
+
+<div class="card">
+<img src="static/images/printout.jpg">
+<div class="card-content">
+<h2>Print Out</h2>
+<p>₹3 per page</p>
+</div>
+</div>
+
+<div class="card">
+<img src="static/images/coloured print.jpg">
+<div class="card-content">
+<h2>Coloured Print</h2>
+<p>₹10 per page</p>
+</div>
+</div>
+
+<div class="card">
+<img src="static/images/Online Forms.jpg">
+<div class="card-content">
+<h2>Online Forms</h2>
+<p>₹100 per form</p>
+</div>
+</div>
+
+<div class="card">
+<img src="static/images/Visiting Cards.jpg">
+<div class="card-content">
+<h2>Visiting Cards</h2>
+<p>₹500 (1000 cards)</p>
+</div>
+</div>
+
+<div class="card">
+<img src="static/images/Money Transfer.jpg">
+<div class="card-content">
+<h2>Money Transfer</h2>
+<p>1% charge</p>
+</div>
+</div>
+
+<div class="card">
+<img src="static/images/certificates.jpg">
+<div class="card-content">
+<h2>Certificates</h2>
+<p>Residence Certificate</p>
+<p>Income Certificate</p>
+</div>
+</div>
+
+<div class="card">
+<img src="static/images/Shadi Cards.jpg">
+<div class="card-content">
+<h2>Shadi Cards</h2>
+<p>₹10, ₹12, ₹15, ₹18, ₹20, ₹25</p>
+</div>
+</div>
+
+<div class="card">
+<img src="static/images/Flex Printing.jpg">
+<div class="card-content">
+<h2>Flex Printing</h2>
+<p>Normal ₹10</p>
+<p>Star ₹20</p>
+</div>
+</div>
+
+<div class="card">
+<img src="static/images/Aadhar Card.jpg">
+<div class="card-content">
+<h2>Aadhar Card</h2>
+<p>Lamination Print ₹50</p>
+<p>Plastic Card Print ₹100</p>
+</div>
+</div>
+
+<div class="card">
+<img src="static/images/pan.jpg">
+<div class="card-content">
+<h2>PAN Card</h2>
+<p>New & Correction ₹200</p>
+</div>
+</div>
+
+<div class="card">
+<img src="static/images/insurance.jpg">
+<div class="card-content">
+<h2>Insurance</h2>
+<p>Health, Bike, Car</p>
+</div>
+</div>
+
+<div class="card">
+<img src="static/images/loan.jpg">
+<div class="card-content">
+<h2>Loan Service</h2>
+<p>Property / Salaried Loan</p>
+</div>
+</div>
+
+<div class="card">
+<img src="static/images/passport.jpg">
+<div class="card-content">
+<h2>Passport</h2>
+<p>New Apply ₹1700</p>
+</div>
+</div>
+
+<!-- VOTE CARD -->
+<div class="card">
+<img src="static/images/voter.jpg">
+<div class="card-content">
+<h2>Vote Card</h2>
+<p>New & Correction</p>
+<p>₹100</p>
+</div>
+</div>
+
+<!-- BANK ACCOUNT -->
+<div class="card">
+<img src="static/images/bank.jpg">
+<div class="card-content">
+<h2>Bank Account</h2>
+<p>Opening Service</p>
+<p>₹500</p>
+</div>
+</div>
+
+<!-- BILL BOOK -->
+<div class="card">
+<img src="static/images/billbook.jpg">
+<div class="card-content">
+<h2>Bill Book</h2>
+<p>A4 Book ₹800 (200 Pages)</p>
+<p>Small Book ₹300 (200 Pages)</p>
+</div>
+</div>
+
+<!-- BILL PAYMENTS -->
+<div class="card">
+<img src="static/images/billpay.jpg">
+<div class="card-content">
+<h2>Bill Payments</h2>
+<p>Electricity Bill / DTH Recharge</p>
+<p>Water Bill / House Tax</p>
+</div>
+</div>
+
+
+</section>
+<div class="service-lines">
+<p>⭐ <b>Print Out:</b> Fast, reliable, and high-quality document printing at affordable rates.</p>
+<p>⭐ <b>Coloured Print:</b> Premium colour printing with sharp details and vibrant output.</p>
+<p>⭐ <b>Online Forms:</b> Hassle-free and accurate online form filling for all services.</p>
+<p>⭐ <b>Visiting Cards:</b> Elegant and professional visiting cards that elevate your brand identity.</p>
+<p>⭐ <b>Money Transfer:</b> Secure, fast, and trusted money transfer services anytime.</p>
+<p>⭐ <b>Certificates:</b> Quick and reliable assistance for all essential certificates.</p>
+<p>⭐ <b>Shadi Cards:</b> Stylish and customizable wedding cards at budget-friendly prices.</p>
+<p>⭐ <b>Flex Printing:</b> Durable and high-resolution flex printing for all your needs.</p>
+<p>⭐ <b>Aadhar Card:</b> Aadhar services including printing, and address corrections.</p>
+<p>⭐ <b>PAN Card:</b> Efficient PAN card application and correction services.</p>
+<p>⭐ <b>Insurance:</b> Comprehensive insurance solutions for health, bike, and car protection.</p>
+<p>⭐ <b>Loan Service:</b> Easy and fast loan assistance for property and salaried individuals.</p>
+<p>⭐ <b>Passport:</b> Smooth and quick passport application services with full support.</p>
+<p>⭐ <b>Vote Card:</b> Reliable voter ID registration and correction services.</p>
+<p>⭐ <b>Bank Account:</b> Simple and secure bank account opening assistance.</p>
+<p>⭐ <b>Bill Book:</b> High-quality customized bill books for business use.</p>
+<p>⭐ <b>Bill Payments:</b> Convenient and instant payment of all utility bills in one place.</p>
+</div>
+<section class="contact">
+<h2>For any Service ( Fill Details )</h2>
+
+<form action="/submit" method="POST">
+
+<input type="text" name="name" placeholder="Your Name" required>
+
+<input type="tel" name="mobile" placeholder="Mobile Number" required>
+
+<input type="text" name="date" placeholder="Enter Date" required>
+
+<input type="text" name="message" placeholder="Type Service You Want" required>
+
+<br>
+<button type="submit">Submit</button>
+
+</form>
+
+</section>
+
+<section class="map">
+<h2>📍 Our Location</h2>
+
+<iframe
+src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d502.54838042886513!2d76.92909132482063!3d28.691143897024624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1774871569798!5m2!1sen!2sin"
+width="100%"
+height="300"
+style="border:0; border-radius:15px;"
+allowfullscreen=""
+loading="lazy">
+</iframe>
+
+</section>
+
+<footer>
+<p>📞 Mobile: 8053440252</p>
+<p>📧 Email: argraphicstech@gmail.com</p>
+<p>📷 Instagram: @argraphicstech</p>
+</footer>
+
+<script>
+function send(){
+alert("Message Sent Successfully!");
+}
+</script>
+
+</body>
+</html>
